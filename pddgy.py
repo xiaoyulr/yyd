@@ -182,8 +182,8 @@ def fertilize(tubetoken, userid):
         try:
             print(f'目前剩可施肥数量为{response["user_backpack_vo"]["amount"]}袋化肥')
             if int(response["ser_backpack_vo"]["amount"]) >= 1:
-                fertilize(tubetoken)
                 time.sleep(random.randint(1, 3))
+                fertilize(tubetoken)                
         except:
             pass
     else:
@@ -335,8 +335,8 @@ def watering(tubetoken, userid):
     if 'error_code' not in response:
         print(f'浇10滴水,水瓶目前还剩{response["now_water_amount"]}水滴')
         if int(response["now_water_amount"]) >= 10:
-            watering(tubetoken, userid)
             time.sleep(random.randint(1, 3))
+            watering(tubetoken, userid)
         else:
             print('浇水完成')
     else:
@@ -368,7 +368,7 @@ def push_plus_bot(content):
     }
     url = 'http://www.pushplus.plus/api/send'
     data = {
-        "token": 'f41e605cf752414d9cc832b6c144c302',
+        "token": os.environ['PUSHPLUS_TOKEN'],
         "title": '拼多多果园',
         "content": b,
         "channel": "wechat",
@@ -447,4 +447,3 @@ if __name__ == '__main__':
             watering(tubetoken, ck[0])
             message = percent(ck[1], ck[0])
             push_plus_bot(message)
-
