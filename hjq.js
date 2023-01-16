@@ -8,7 +8,7 @@
  变量格式：export hjq='xxx@xxx'  多个账号用 @ 或者 换行 分割
  定时：一天一次
  cron：30 10 * * *
- const $ = new Env("福袋生活")
+ const $ = new Env("和家亲")
  如果要自动提现请填写变量 hjqTX 示例：export hjqTX='支付宝手机号1&真实姓名1@支付宝手机号2&真实姓名2'
  支付宝手机号要和注册账号一样
 
