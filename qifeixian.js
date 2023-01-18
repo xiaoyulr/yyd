@@ -1,4 +1,5 @@
 /*
+corn 0 */3 * * *
 地址：
 
 #小程序://起飞线/CSqyX4iNkjdOH8D
