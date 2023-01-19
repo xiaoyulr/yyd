@@ -85,7 +85,7 @@ if __name__ == '__main__':
     webhook_token = os.environ["QYWX_KEY"]
     for i in range(len(cookies)):
         number = i + 1
-        cookie = cookies[i].split("&")
+        cookie = cookies[i].split("#")
         userId = cookie[0]
         consumerId = cookie[1]
         money = get_money(number, userId, consumerId)
