@@ -1,5 +1,5 @@
 """
-cron: 10 19 * * *
+cron: 0 0 * * *
 new Env('广汽传祺抽奖');
 
 """
@@ -28,7 +28,9 @@ def luck_car(token):
         'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
     }
     res = requests.post(url=url, headers=headers).json()
-    pprint(res)
+    if res['result']:
+        reward = res['data']['medalDescription']
+        print(f"抽奖获得{reward}")
 
 
 if __name__ == '__main__':
