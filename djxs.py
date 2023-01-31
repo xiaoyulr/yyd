@@ -208,8 +208,4 @@ if __name__ == '__main__':
     mes = user_coin()
     webhook(message, webhook_token)
 
-"""
-sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22j56126217%22%2C%22first_id%22%3A%221807b331e6b1ac-0212edd85b0eef-74204232-326190-1807b331e6d2f4%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22%24device_id%22%3A%221807b331e6b1ac-0212edd85b0eef-74204232-326190-1807b331e6d2f4%22%7D
-https://dj.palmestore.com/zybk/api/ad/reyunbook?pluginVersion=198&sign=l6MtpPPMRPJ4DZrbyP7SmtN2vboQ3TPVE%2Fu%2BFO609S6iF49z9GDlRrAN4I7ExgXZk2NMckk8ADebslf69klk9k4%2Bn2IVZYytoCxVJ8zn5n8pLDvHI4mmAa3LJDATBfReuy34FzjJyNsrdcikR0HrGB7%2FfX2FNtvpwGQOsb%2Bdyi0%3D&index=2&androidIdE=__f70b1c61e3dfa4c0&pAndroidIdE=__f70b1c61e3dfa4c0&timestamp=1654093294387&zyeid=b0aa8ad0-f855-49ab-8be3-f8c823a66778&usr=j56126217&rgt=7&p1=Ym1c6ai%2Fb30DAETst9xTkWwY&ku=j56126217&kt=991ea219c912e9def1193de24640c580&pc=10&p2=124020&p3=20000056&p4=501656&p5=19&p6=&p7=__f70b1c61e3dfa4c0&p9=0&p12=&p16=Pixel+4&p21=31303&p22=10&p25=20000156&p26=29&p28=&p30=&p31=__f70b1c61e3dfa4c0&firm=google
-https://dj.palmestore.com/zybk/api/ad/reyunbook?pluginVersion=198&sign=hVl%2F2uCsNeAsXpV3jRL2wHCkSyXATR56Xn6slHqIMGBosLFWJ7gNx9AV0BeQ74E7wpfSOk0psCm2utrTGnU89DGt2mxw4wt2kZJTPoFSZtQMXwzDGTvO%2Fgmsom6qcKYnT1SnrUympTbo%2BmN9Mllogzbf4fbqrq8LI7P3j5msSQ4%3D&index=3&androidIdE=__f70b1c61e3dfa4c0&pAndroidIdE=__f70b1c61e3dfa4c0&timestamp=1654093414478&zyeid=b0aa8ad0-f855-49ab-8be3-f8c823a66778&usr=j56126217&rgt=7&p1=Ym1c6ai%2Fb30DAETst9xTkWwY&ku=j56126217&kt=991ea219c912e9def1193de24640c580&pc=10&p2=124020&p3=20000056&p4=501656&p5=19&p6=&p7=__f70b1c61e3dfa4c0&p9=0&p12=&p16=Pixel+4&p21=31303&p22=10&p25=20000156&p26=29&p28=&p30=&p31=__f70b1c61e3dfa4c0&firm=google
-"""
+
