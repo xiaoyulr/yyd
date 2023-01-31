@@ -188,7 +188,7 @@ def webhook(message, webhook_token):
 
 if __name__ == '__main__':
     webhook_token = os.environ['QYWX_KEY']
-    cookie = os.environ["djcookie"].split("@")
+    cookie = os.environ["djcookie"]
     start_time = datetime.datetime.now().strftime('%H')
 
     header1 = {
@@ -206,6 +206,6 @@ if __name__ == '__main__':
         box()
         look_video()
     mes = user_coin()
-    webhook(message, webhook_token)
+    webhook(mes, webhook_token)
 
 
