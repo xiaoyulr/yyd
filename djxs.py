@@ -1,5 +1,5 @@
 """
-cron: 1 8,12,13-22 * * *
+cron: 1 8,12,13-22,23 * * *
 const $ = new Env("得见小说")
 """
 
@@ -160,7 +160,7 @@ def user_coin():
     pprint(resonse)
     if resonse['code'] == 0:
         print(f'得见小说目前{resonse["body"]["gold"]["goldAmount"]}金币')
-        return '得见小说目前{resonse["body"]["gold"]["goldAmount"]}金币'
+        return f'得见小说目前{resonse["body"]["gold"]["goldAmount"]}金币'
     # else:
     #     print(resonse["msg"])
 
@@ -202,10 +202,11 @@ if __name__ == '__main__':
         sign()
     elif start_time == "12":
         three_meal()
+    elif start_time == "23":
+        mes = user_coin()
+        webhook(mes, webhook_token)
     else:
         box()
         look_video()
-    mes = user_coin()
-    webhook(mes, webhook_token)
 
 
