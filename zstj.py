@@ -67,7 +67,7 @@ def sign_data(userId, salf):
         signStatue = res['data']['signStatue']
         signData = res['data']['signData']
         print(f'签到天数为{signDays}天;累计签到天数{signAllDays}天;今日是否签到{signStatue};连续签到7天奖励{signData}')
-        return f'签到天数为{signDays}天;累计签到天数{signAllDays}天;今日是否签到{signStatue};连续签到7天奖励{signData}'
+        return f'掌上天津极速版,签到天数为{signDays}天;累计签到天数{signAllDays}天;今日是否签到{signStatue};连续签到7天奖励{signData}'
 
 
 def sign(userId, salf):
