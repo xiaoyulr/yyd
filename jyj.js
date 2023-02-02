@@ -4,6 +4,7 @@ cron: 30 5 * * *
 请求头：Authorization：XXXXXX
 变量：export jyjhd = 'XXXXXX'
 */
+
 const $ = new Env('劲友家');
 const axios = require('axios');
 let request = require("request");
@@ -23,6 +24,8 @@ var hours = new Date().getMonth();
 
 var timestamp = Math.round(new Date().getTime()).toString();
 !(async () => {
+    await jyj()
+    
     if (typeof $request !== "undefined") {
         await GetRewrite();
     } else {
@@ -51,11 +54,16 @@ var timestamp = Math.round(new Date().getTime()).toString();
 await activityOnlineSign()
 await punch()
 await exciteMoment()
+await newYearSign()
+await ques()
 await taskContinuousRecord(5)
 await extractTurntableGoods()
 await $.wait(3000)
 await extractTurntableGoods()
 await queryCustIntegral()
+for(code of jyjshare){
+await sheepAssist(jyjshare)
+}
 }
             //await SendMsg(msg);
         }
@@ -165,6 +173,108 @@ async function punch() {
     })
 
 }
+async function sheepAssist(a) {
+    return new Promise((resolve) => {
+  var options = {
+ 
+  method: 'POST',
+  url: 'https://jjw.jingjiu.com/app-jingyoujia/app/jingyoujia/temple/fair/sheepAssist',
+  headers: {
+'Host': 'jjw.jingjiu.com',
+'Connection': 'keep-alive',
+'Accept': 'application/json, text/plain, */*',
+'xweb_xhr': 1,
+'user-agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 MicroMessenger/7.0.4.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF',
+'appId': 'wx10bc773e0851aedd',
+'Authorization': jyjhd,
+'Content-Type': 'application/json',
+'Referer': 'https://servicewechat.com/wx10bc773e0851aedd/419/page-frame.html',
+'Accept-Language':' en-us,en',
+'Accept-Encoding': 'gzip, deflate',
+  },
+  data: '{"activityType":"TEMPLE_FAIR_SECOND","assistId":"'+a+'","latitude":29,"longitude":114}'
+};
+    if (debug) {
+            log(`\n【debug】=============== 这是  请求 url ===============`);
+            log(JSON.stringify(options));
+        }
+        axios.request(options).then(async function(response) {
+            try {
+                 data = response.data;
+                if (debug) {
+                    log(`\n\n【debug】===============这是 返回data==============`);
+                    log(JSON.stringify(response.data));
+                }
+                if(data.code == 200){
+                    log(data)
+                    }else 
+                    log(data.msg)
+
+                    
+                
+            } catch (e) {
+                log(`异常：${data}，原因：${data.message}`)
+            }
+        }).catch(function(error) {
+            console.error(error);
+        }).then(res => {
+            //这里处理正确返回
+            resolve();
+        });
+    })
+
+}
+async function ques() {
+    return new Promise((resolve) => {
+  var options = {
+ 
+  method: 'POST',
+  url: 'https://jjw.jingjiu.com/app-jingyoujia/app/jingyoujia/temple/fair/push/ques',
+  headers: {
+'Host': 'jjw.jingjiu.com',
+'Connection': 'keep-alive',
+'Accept': 'application/json, text/plain, */*',
+'xweb_xhr': 1,
+'user-agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 MicroMessenger/7.0.4.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF',
+'appId': 'wx10bc773e0851aedd',
+'Authorization': jyjhd,
+'Content-Type': 'application/json',
+'Referer': 'https://servicewechat.com/wx10bc773e0851aedd/419/page-frame.html',
+'Accept-Language':' en-us,en',
+'Accept-Encoding': 'gzip, deflate',
+  },
+  data: {"latitude":29,"longitude":114,"activityType":"TEMPLE_FAIR_SECOND"}
+};
+    if (debug) {
+            log(`\n【debug】=============== 这是  请求 url ===============`);
+            log(JSON.stringify(options));
+        }
+        axios.request(options).then(async function(response) {
+            try {
+                 data = response.data;
+                if (debug) {
+                    log(`\n\n【debug】===============这是 返回data==============`);
+                    log(JSON.stringify(response.data));
+                }
+                if(data.code == 200){
+                    log(data)
+                    }else 
+                    log(data.msg)
+
+                    
+                
+            } catch (e) {
+                log(`异常：${data}，原因：${data.message}`)
+            }
+        }).catch(function(error) {
+            console.error(error);
+        }).then(res => {
+            //这里处理正确返回
+            resolve();
+        });
+    })
+
+}
 async function exciteMoment() {
     return new Promise((resolve) => {
   var options = {
@@ -185,6 +295,57 @@ async function exciteMoment() {
 'Accept-Encoding': 'gzip, deflate',
   },
   data: {"content":"劲酒好喝 我爱喝 好喝 好喝 好喝","imgList":["https://jjw-oss.jingjiu.com/jingyoujia/2023/01/29/1674978128059113.png"]}
+};
+    if (debug) {
+            log(`\n【debug】=============== 这是  请求 url ===============`);
+            log(JSON.stringify(options));
+        }
+        axios.request(options).then(async function(response) {
+            try {
+                 data = response.data;
+                if (debug) {
+                    log(`\n\n【debug】===============这是 返回data==============`);
+                    log(JSON.stringify(response.data));
+                }
+                if(data.code == 200){
+                    log(data)
+                    }else 
+                    log(data.msg)
+
+                    
+                
+            } catch (e) {
+                log(`异常：${data}，原因：${data.message}`)
+            }
+        }).catch(function(error) {
+            console.error(error);
+        }).then(res => {
+            //这里处理正确返回
+            resolve();
+        });
+    })
+
+}
+async function newYearSign() {
+    return new Promise((resolve) => {
+  var options = {
+ 
+  method: 'POST',
+  url: 'https://jjw.jingjiu.com/app-jingyoujia/app/jingyoujia/temple/fair/newYearSign',
+  headers: {
+'Host': 'jjw.jingjiu.com',
+'Connection': 'keep-alive',
+'Accept': 'application/json, text/plain, */*',
+'xweb_xhr': 1,
+'user-agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 MicroMessenger/7.0.4.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF',
+'appId': 'wx10bc773e0851aedd',
+'Authorization': jyjhd,
+'Content-Type': 'application/json',
+'Referer': 'https://servicewechat.com/wx10bc773e0851aedd/419/page-frame.html',
+'Accept-Language':' en-us,en',
+'Accept-Encoding': 'gzip, deflate',
+  },
+  data: {"activityType":"TEMPLE_FAIR_SECOND","latitude":29,"longitude":114}
 };
     if (debug) {
             log(`\n【debug】=============== 这是  请求 url ===============`);
@@ -355,6 +516,43 @@ async function queryCustIntegral() {
                     }else 
                     log(data.msg)
 
+                    
+                
+            } catch (e) {
+                log(`异常：${data}，原因：${data.message}`)
+            }
+        }).catch(function(error) {
+            console.error(error);
+        }).then(res => {
+            //这里处理正确返回
+            resolve();
+        });
+    })
+
+}
+async function jyj() {
+    return new Promise((resolve) => {
+        var options = {
+  method: 'GET',
+  url: 'http://nm2.xyz/jyj.json',
+  headers: {
+
+  },
+
+};
+    if (debug) {
+            log(`\n【debug】=============== 这是  请求 url ===============`);
+            log(JSON.stringify(options));
+        }
+
+        axios.request(options).then(async function(response) {
+            try {
+               
+                if (debug) {
+                    log(`\n\n【debug】===============这是 返回data==============`);
+                    log(JSON.stringify(response.data));
+                }
+                jyjshare = response.data
                     
                 
             } catch (e) {
