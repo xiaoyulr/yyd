@@ -357,7 +357,6 @@ def webhook(message, webhook_token):
 if __name__ == '__main__':
     webhook_token = os.environ['QYWX_KEY']
     dwtokens = os.environ["dwtoken"].split("\n")
-    dwtokens="9M9oS6jpSgOF4JNukiKiwbrKoSz9aylnvPuslm7guVLgR9hK9av1NDpeyLn1I37njT7jmVl7Y90Nds5XImfL3ztLuL20&20230128225413a87ee709cfb952d3f10e37c551ce95e0011afe32d1b7ff11&eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2NzUxMjY5NTEsImV4cCI6MTcwNjY2Mjk1MSwiaXNzIjoiNzMxNDNhZDhiYTQyNDY2NiIsInN1YiI6IjczMTQzYWQ4YmE0MjQ2NjYiLCJ1dWlkIjoiNzMxNDNhZDhiYTQyNDY2NiIsInVzZXJJZCI6MTM2MzU2OTA1NiwidXNlck5hbWUiOiLlvpfniallci0yUjdLNEcyUyIsImlzR3Vlc3QiOmZhbHNlfQ.W069W6JuQfJ6tzfiZxCdTZvQ44sXUyUuTaEsfkAF-SJ28Kx355OAFWllk9ASiHPLnLYygG3r_dzDyxN5ZLY3vkReyigQD6Oq2soQxtTCjCaSk3DFhIdhSK66Kq02Jenkstfqsx-_sbRjVhB96vpp0jMZCq_inIttlQDJrdFNFeZflGGwrvURDUgm1uTjJDj4ArIZvHuEw-9xEtdX6iQI6u2cIm9NZoVRH9Lu7y54elw0BHBW091DaaIssiMCBn3gVO5m5PXO_MiWXldiVVzRf70QfSGp8U5kDcb3syGWEXP0i_ddJWXpw4gIMcvgaoW9Y5mkwhEt3uM37LW_eWtg1Q&73143ad8ba424666&d41d8cd9|1363569056|1675053828|1cb434adc5ecada3".split('\n')
     start_time = datetime.datetime.now().strftime('%H')
     for token in dwtokens:
         token = token.split("&")
