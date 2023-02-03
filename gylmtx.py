@@ -31,6 +31,9 @@ def get_money(number, userId, consumerId):
         money = res['data']['balance']
         print(f"第{number}个账号目前{money / 100}元")
         return money
+    else:
+        print(res['desc']) 
+        return 99   
 
 
 def withdraw_money(number, userId, consumerId):
@@ -81,7 +84,7 @@ def webhook(message, webhook_token):
 
 
 if __name__ == '__main__':
-    cookies = os.environ["fdshck"].split("@")
+    cookies = os.environ["gyncck"].split("@")
     webhook_token = os.environ["QYWX_KEY"]
     for i in range(len(cookies)):
         number = i + 1
@@ -89,6 +92,7 @@ if __name__ == '__main__':
         userId = cookie[0]
         consumerId = cookie[1]
         money = get_money(number, userId, consumerId)
-        if money >= 100:
-            msg = withdraw_money(number, userId, consumerId)
-            webhook(msg, webhook_token)
+        if money !=99:
+            if money >= 100:
+                msg = withdraw_money(number, userId, consumerId)
+                webhook(msg, webhook_token)
