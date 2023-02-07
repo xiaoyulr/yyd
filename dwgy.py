@@ -63,6 +63,20 @@ def receive_water():
         print(f'收水车水滴{droplet}滴')
 
 
+# 7日登录奖励
+def Seven_day_login_bonus():
+    url = "https://app.dewu.com/hacking-tree/v1/sign/sign_in"
+    body_commit = {}
+    body = json.dumps(body_commit).encode(encoding='utf-8')
+    res = requests.post(url=url, data=body, headers=headers).json()
+    pprint(res)
+    # if res['code'] == 200:
+    #     num = res["data"]["num"]
+    #     print(f'完成任务获得{num}水滴')
+    # else:
+    #     print(res['msg'])
+
+
 def get_list():
     url = "https://app.dewu.com/hacking-tree/v1/task/list"
     res = requests.get(url, headers=headers).json()
@@ -74,13 +88,14 @@ def get_list():
             taskType = i["taskType"]
             classify = i["classify"]
             print(f"开始{taskName}任务, {taskId}, {taskType}, {classify}".center(50, "*"))
-            if taskName == "服装会场水滴翻倍大放送":
-                print(taskName, taskId, taskType)
+            if taskType == 251:
+                pre_commit_obtain(taskId)
+                # print(taskName, taskId, taskType)
                 pre_commit_task(taskName, taskId)
                 task_status(taskId)
-                body_commit = {"taskId": taskId, "taskType": '16'}
+                body_commit = {"taskId": f'{taskId}', "taskType": f'{taskType}'}
                 commit_task(taskName, body_commit)
-                time.sleep(10)
+                # time.sleep(10)
                 body = {"classify": classify, "taskId": taskId, "completeFlag": 1}
                 receive_task(body)
             elif taskName == "授权开通一次借钱":
@@ -105,59 +120,28 @@ def get_list():
                 body_commit = {"taskId": taskId, "taskType": f'{taskType}'}
                 commit_task(taskName, body_commit)
                 time.sleep(10)
-                body = {"classify": classify, "taskId": taskId}
-                receive_task(body)
-            elif taskName == "逛逛国潮棉服专场":
-                print(taskName, taskId, taskType)
-                body_commit = {"taskId": taskId, "taskType": f'{taskType}', "activityType": '', "activityId": '',
-                               "taskSetId": '', "venueCode": '', "venueUnitStyle": '', "taskScene": ''}
-                pre_commit_task(taskName, taskId)
-                task_status(taskId)
-                commit_task(taskName, body_commit)
-                time.sleep(10)
+                requests.get("https://app.dewu.com/hacking-tree/v1/task/list", headers=headers).json()
                 body = {"classify": classify, "taskId": taskId}
                 receive_task(body)
             elif taskName == "收集一次水滴生产":
                 pass
             elif taskName == "完成五次浇灌":
                 pass
-            elif taskName == "从购买页进入到星愿森林":
-                body_commit = {"taskId": taskId, "taskType": f'{taskType}'}
-                commit_task(taskName, body_commit)
-                time.sleep(10)
-                body = {"classify": classify, "taskId": taskId}
+            elif taskName == "查看一次聊一聊":
+                report_action()
+                body = {"classify": classify, "taskId": f'{taskId}'}
                 receive_task(body)
-            elif taskName == "美妆会场水滴大放送":
-                pre_commit_task(taskName, taskId)
-                task_status(taskId)
-                body_commit = {"taskId": taskId, "taskType": '16'}
-                commit_task(taskName, body_commit)
+
+            elif taskName == "从购买页进入到星愿森林":
+                Into_the_dark_forest()
                 body = {"classify": classify, "taskId": taskId}
-                print(body)
                 receive_task(body)
             elif taskName == "逛逛国潮棉服专场":
                 pre_commit_task(taskName, taskId)
-                time.sleep(16)
-                body_commit = {"taskId": taskId, "taskType": f'{taskType}', "activityType": '', "activityId": '',
+                body_commit = {"taskId": f'{taskId}', "taskType": f'{taskType}', "activityType": '', "activityId": '',
                                "taskSetId": '', "venueCode": '', "venueUnitStyle": '', "taskScene": ''}
-                commit_task(taskName, body_commit)
                 time.sleep(10)
-                body = {"classify": classify, "taskId": taskId}
-                receive_task(body)
-            elif taskName == "新春配饰会场水滴翻倍大放送":
-                pre_commit_task(taskName, taskId)
-                time.sleep(16)
-                body_commit = {"taskId": taskId, "taskType": '16'}
                 commit_task(taskName, body_commit)
-                time.sleep(10)
-                body = {"classify": classify, "taskId": taskId}
-                receive_task(body)
-            elif taskName == "新春家居会场水滴翻倍大放送":
-                pre_commit_task(taskName, taskId)
-                time.sleep(16)
-                body_commit = {"taskId": taskId, "taskType": '16'}
-                commit_task(taskName, body_commit)
-                time.sleep(10)
                 body = {"classify": classify, "taskId": taskId}
                 receive_task(body)
             else:
@@ -167,12 +151,27 @@ def get_list():
                 receive_task(body)
 
 
+def Into_the_dark_forest():
+    url = "https://app.dewu.com/hacking-tree/v1/user/report_action?sign=0a7fd2972b2a089816bf5edef4196a6b"
+    body_commit = {"action": "2"}
+    body = json.dumps(body_commit).encode(encoding='utf-8')
+    res = requests.post(url=url, data=body, headers=headers).json()
+
+
 def task_status(taskId):
-    for i in range(5):
+    for i in range(8):
         url = f"https://app.dewu.com/hacking-task/v1/task/status?taskId={taskId}&taskType=251"
         res = requests.get(url=url, headers=headers).json()
-        print(res)
-        time.sleep(6)
+        # print(res)
+        time.sleep(2)
+
+
+# 看一看聊一聊
+def report_action():
+    url = "https://app.dewu.com/hacking-tree/v1/user/report_action"
+    body = {"action": "3"}
+    body = json.dumps(body).encode(encoding='utf-8')
+    res = requests.post(url=url, data=body, headers=headers).json()
 
 
 # 1天领4次水滴
@@ -192,6 +191,7 @@ def receive_task(body):
     url = "https://app.dewu.com/hacking-tree/v1/task/receive"
     body = json.dumps(body).encode(encoding='utf-8')
     res = requests.post(url=url, data=body, headers=headers).json()
+    # print(res)
     if res['code'] == 200:
         num = res["data"]["num"]
         print(f'完成任务获得{num}水滴')
@@ -199,9 +199,21 @@ def receive_task(body):
         print(res['msg'])
 
 
+def pre_commit_obtain(taskId):
+    url = 'https://app.dewu.com/hacking-task/v1/task/obtain'
+    body_commit = {"taskId": f'{taskId}', "taskType": 251}
+    # print(body_commit)
+    body = json.dumps(body_commit).encode(encoding='utf-8')
+    res = requests.post(url=url, data=body, headers=headers).json()
+    # if res['code'] == 200:
+    #     print(f"提交{taskName},任务{res['msg']}")
+    # else:
+    #     print(res['msg'])
+
+
 def pre_commit_task(taskName, taskId):
     url = 'https://app.dewu.com/hacking-task/v1/task/pre_commit'
-    body_commit = {"taskId": taskId, "taskType": 16}
+    body_commit = {"taskId": f"{taskId}", "taskType": 1}
     body = json.dumps(body_commit).encode(encoding='utf-8')
     res = requests.post(url=url, data=body, headers=headers).json()
     if res['code'] == 200:
@@ -231,6 +243,7 @@ def extra_task_reward():
         if res['code'] == 200:
             num = res["data"]["num"]
             print(f"完成任务获得额外水滴{num}")
+        time.sleep(2)
 
 
 # 水滴投资
@@ -246,7 +259,10 @@ def invest_commit_water():
 
 def invest_water():
     url = "https://app.dewu.com/hacking-tree/v1/invest/receive"
-    res = requests.post(url=url, headers=headers).json()
+    body = {}
+    body = json.dumps(body).encode(encoding='utf-8')
+    res = requests.post(url=url, data=body, headers=headers).json()
+    print(res)
     if res['code'] == 200:
         profit = res["data"]["profit"]
         print(f'获得投资收益{profit}水滴')
@@ -355,7 +371,7 @@ def webhook(message, webhook_token):
 
 
 if __name__ == '__main__':
-    webhook_token = os.environ['QYWX_KEY']
+    webhook_token = "os.environ['QYWX_KEY']"
     dwtokens = os.environ["dwtoken"].split("\n")
     start_time = datetime.datetime.now().strftime('%H')
     for token in dwtokens:
@@ -378,14 +394,21 @@ if __name__ == '__main__':
         # # get_info()
         if start_time == "08":
             # # 1天领4次水滴
+            print('开始一天领4次水滴任务')
             receive_task_4water()
             # 领水滴投资
+            print('领水滴投资')
             invest_water()
             # # # 领水车水滴
+            print('领水车水滴')
             receive_water()
             reveive_one_water()
+            #7日登录奖励
+            print('领7日登录礼')
+            Seven_day_login_bonus()
         if start_time == "10":
             droplet_extra_water()
+            receive_water()
         if start_time == "12":
             # # 1天领4次水滴
             receive_task_4water()
@@ -394,11 +417,13 @@ if __name__ == '__main__':
         if start_time == "18":
             # # 1天领4次水滴
             receive_task_4water()
+            receive_water()
         if start_time == "22":
             # 1天领4次水滴
             receive_task_4water()
+            receive_water()
             get_list()
-            # # 水滴投资
+            # # # 水滴投资
             watering()
             extra_task_reward()
             msg = get_info()
