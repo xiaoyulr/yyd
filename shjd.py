@@ -80,11 +80,11 @@ def get_tasklist():
             id = i['id']
             title = i['title']
             print(id, title)
-            # if title == "阅读文章":
-            #     for i in list:
-            #         read_add()
-            #         read(i)
-            #         time.sleep(2)
+            if title == "阅读文章":
+                for i in list:
+                    read_add()
+                    read(i)
+                    time.sleep(2)
             if title == "视听积分":
                 list_radio = get_radio_list()
                 for i in list_radio:
