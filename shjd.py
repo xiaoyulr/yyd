@@ -43,7 +43,6 @@ def post_body(url, body):
 def get_person():
     url = "https://jdapi.shmedia.tech/media-basic-port/api/app/personal/get"
     res = post(url)
-    pprint(res)
     if res['code'] == 0:
         nickname = res['data']['nickname']
         score = res['data']['score']
@@ -217,7 +216,7 @@ if __name__ == '__main__':
         get_person()
         login()
         sign()
-        # get_tasklist()
+        get_tasklist()
         meg = get_person()
         send_list.append(meg)
     message = "上海嘉定积分推送:  \n" + "\n".join(send_list)
