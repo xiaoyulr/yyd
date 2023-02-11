@@ -62,10 +62,11 @@ def sign():
     body = {}
     url = "https://jdapi.shmedia.tech/media-basic-port/api/app/personal/score/sign"
     res = post_body(url, body)
-    if res['code'] == 0:
-        score = res['data']['score']
-        title = res['data']['title']
-        print(f"{title},获得{score}分")
+    print(res)
+#     if res['code'] == 0:
+#         score = res['data']['score']
+#         title = res['data']['title']
+#         print(f"{title},获得{score}分")
 
 
 def get_tasklist():
