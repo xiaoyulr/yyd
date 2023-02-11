@@ -371,7 +371,7 @@ def webhook(message, webhook_token):
 
 
 if __name__ == '__main__':
-    webhook_token = "os.environ['QYWX_KEY']"
+    webhook_token = os.environ['QYWX_KEY']
     dwtokens = os.environ["dwtoken"].split("\n")
     start_time = datetime.datetime.now().strftime('%H')
     for token in dwtokens:
