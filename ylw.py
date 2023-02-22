@@ -239,7 +239,7 @@ def get_task_list(id):
             elif name == '邀请好友':
                 pass
             elif name == '新闻资讯阅读':
-                get_read_list(id, name)
+                get_read_list(id)
             else:
                 pass
 
