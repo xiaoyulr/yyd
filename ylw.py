@@ -435,8 +435,8 @@ if __name__ == '__main__':
     message = ""
     for i in tokens:
         count = i.split("#")
-        number = i[0]
-        password = i[1]
+        number = count[0]
+        password = count[1]
         code = get_code(number, password)
         id = get_login(code)
         get_sign(id)
