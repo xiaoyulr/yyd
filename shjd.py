@@ -62,11 +62,13 @@ def sign():
     body = {}
     url = "https://jdapi.shmedia.tech/media-basic-port/api/app/personal/score/sign"
     res = post_body(url, body)
-    print(res)
-#     if res['code'] == 0:
-#         score = res['data']['score']
-#         title = res['data']['title']
-#         print(f"{title},获得{score}分")
+    if res['code'] == 0:
+        try:
+            score = res['data']['score']
+            title = res['data']['title']
+            print(f"{title},获得{score}分")
+        except:
+            pass
 
 
 def get_tasklist():
@@ -120,7 +122,7 @@ def read(list):
     url = "https://jdapi.shmedia.tech/media-basic-port/api/app/news/content/get"
     res = post_body(url, body)
     if res['code'] == 0:
-        channelName = res['data']['channel']['title']
+        channelName = res['data']['title']
         shareUrl = res['data']['shareUrl']
         title = res['data']['title']
         titleImage = res['data']['displayResources'][0]['sourceUrl']
