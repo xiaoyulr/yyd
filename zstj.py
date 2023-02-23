@@ -5,7 +5,7 @@ const $ = new Env("掌上天津")
 
 import json
 import time, base64, hashlib, execjs, urllib.parse, os
-import hmac
+import hmac,random
 from hashlib import sha1
 import requests
 
@@ -140,6 +140,7 @@ def webhook(message, webhook_token):
 if __name__ == '__main__':
     zstjhd = os.environ['zstjhd'].split("\n")
     webhook_token = os.environ['QYWX_KEY']
+    time.sleep(random.randint(0,360))
     for i in zstjhd:
         userId = i.split("&")[0]
         salf = i.split("&")[1]
