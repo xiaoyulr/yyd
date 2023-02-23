@@ -249,6 +249,7 @@ def get_read_list(id):
     data = f"/api/article/channel_list&&{id}&&0a85af96-8dc0-44b6-96ab-9f1c6727e289&&{time1}&&FR*r!isE5W&&51"
     page_number = [10, 20, 30, 40, 50, 60, 70, 80, 90]
     page = random.choice(page_number)
+    print(page)
     url = f"https://vapp.tmuyun.com/api/article/channel_list?channel_id=62c53767373c550ecabd9d6a&isDiFangHao=false&is_new=true&list_count={page}&size=10"
     X_SIGNATURE = sha256_secret_str(data)
     headers = {
@@ -441,7 +442,6 @@ if __name__ == '__main__':
         id = get_login(code)
         get_sign(id)
         get_task_list(id)
-        get_read_list(id)
         score = get_score(id)
         message += f"账号{number},目前有{score}积分"
     webhook(message, webhook_token)
