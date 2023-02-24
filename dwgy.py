@@ -116,13 +116,6 @@ def get_list():
                 time.sleep(10)
                 body = {"classify": classify, "taskId": taskId}
                 receive_task(body)
-            elif taskName == "去95分App逛潮奢尖货":
-                body_commit = {"taskId": taskId, "taskType": f'{taskType}'}
-                commit_task(taskName, body_commit)
-                time.sleep(10)
-                requests.get("https://app.dewu.com/hacking-tree/v1/task/list", headers=headers).json()
-                body = {"classify": classify, "taskId": taskId}
-                receive_task(body)
             elif taskName == "收集一次水滴生产":
                 pass
             elif taskName == "完成五次浇灌":
@@ -136,7 +129,7 @@ def get_list():
                 Into_the_dark_forest()
                 body = {"classify": classify, "taskId": taskId}
                 receive_task(body)
-            elif taskName == "逛逛国潮棉服专场":
+            elif taskType == 1 and taskName != '完成五次浇灌':
                 pre_commit_task(taskName, taskId)
                 body_commit = {"taskId": f'{taskId}', "taskType": f'{taskType}', "activityType": '', "activityId": '',
                                "taskSetId": '', "venueCode": '', "venueUnitStyle": '', "taskScene": ''}
