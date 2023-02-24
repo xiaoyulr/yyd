@@ -231,10 +231,20 @@ def get_task_list(id):
 
             if name == '分享资讯给好友':
                 for i in range(3):
-                    get_do_task(id, name, member_task_type)
+                    res = get_do_task(id,  member_task_type)
                     time.sleep(5)
+                # pprint(res)
+                if len(res) != 1:
+                    experience = res['data']['score_notify']["experience"]
+                    # signIntegral = res['data']["signIntegral"]
+                    print(f"完成{name}任务成功,获得{experience}积分")
             elif name == '使用本地服务':
-                get_do_task(id, name, member_task_type)
+                res = get_do_task(id,  member_task_type)
+                # pprint(res)
+                if len(res) != 1:
+                    experience = res['data']['score_notify']["experience"]
+                    # signIntegral = res['data']["signIntegral"]
+                    print(f"完成{name}任务成功,获得{experience}积分")
                 time.sleep(5)
             elif name == '邀请好友':
                 pass
