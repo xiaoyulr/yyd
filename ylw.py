@@ -166,7 +166,7 @@ def get_sign(id):
         print(res)
 
 
-def get_do_task(id, name, memberType):
+def get_do_task(id, memberType):
     time1 = str(int(time.time() * 1000))
     data = f"/api/user_mumber/doTask&&{id}&&0a85af96-8dc0-44b6-96ab-9f1c6727e289&&{time1}&&FR*r!isE5W&&51"
     url = "https://vapp.tmuyun.com/api/user_mumber/doTask"
@@ -191,13 +191,14 @@ def get_do_task(id, name, memberType):
     }
     redata = urllib.parse.urlencode(data)
     res = requests.post(url, headers=headers, data=redata).json()
-    # pprint(res)
-    if res["code"] == 0:
-        experience = res['data']["experience"]
-        # signIntegral = res['data']["signIntegral"]
-        print(f"完成{name}任务成功,获得{experience}积分")
-    else:
-        print(res)
+    return res
+    # # pprint(res)
+    # if res["code"] == 0:
+    #     experience = res['data']["experience"]
+    #     # signIntegral = res['data']["signIntegral"]
+    #     print(f"完成{name}任务成功,获得{experience}积分")
+    # else:
+    #     print(res)
 
 
 def get_task_list(id):
