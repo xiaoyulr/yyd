@@ -50,15 +50,15 @@ async function start() {
         await wait(2);
     }
     await Promise.all(taskall);
-    console.log('\n================== 每日分享 ==================\n');
-    taskall = [];
-    for (let user of userList) {
-        for (let i = 0; i < 3; i++) {
-            taskall.push(await user.task_share('每日分享'));
-            await wait(3);
-        }
-    }
-    await Promise.all(taskall);
+    // console.log('\n================== 每日分享 ==================\n');
+    // taskall = [];
+    // for (let user of userList) {
+    //     for (let i = 0; i < 3; i++) {
+    //         taskall.push(await user.task_share('每日分享'));
+    //         await wait(3);
+    //     }
+    // }
+    // await Promise.all(taskall);
     console.log('\n================== 发布动态 ==================\n');
     taskall = [];
     for (let user of userList) {
@@ -167,7 +167,7 @@ class UserInfo {
         try {
             let options = {
                 method: 'POST',
-                url: this.hostname + '/api/v1/user/sign/',
+                url: this.hostname + '/api/v1/userSign/sign',
                 headers: this.headersPostv1,
                 body: {},
                 json: true
